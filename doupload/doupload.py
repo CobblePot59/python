@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 from flask_autoindex import AutoIndex
 from werkzeug.utils import secure_filename
 
-ALLOWED_EXTENSIONS = set(['pdf', 'zip', 'iso'])
+ALLOWED_EXTENSIONS = set(['pdf', 'zip'])
 
 app = Flask(__name__)
 AutoIndex(app, browse_root="D:/Stockage/Flask/Download")
