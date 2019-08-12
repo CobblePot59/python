@@ -15,5 +15,5 @@ for x,y in zip(p1,p2):
 	price_list.append(a)
 
 for i in range(1,len(product_list)):
-		print(product_list[i])
-		print(price_list[i])
+	print(product_list[i])
+	print(price_list[i])
