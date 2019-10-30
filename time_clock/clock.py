@@ -43,16 +43,16 @@ while True:
 
         for i in range(len(id)):
                 #Tag id
-				if str(card_data[7]) == id[i]:
-				    print(nom[i]," arrives at : ", date,hour)
-                    if sheet0.cell(row = r, column = 1).value is None:
-                        sheet0.cell(row = r, column = 1).value = nom[i]
-                        sheet0.cell(row = r, column = 2).value = date
-                        sheet0.cell(row = r, column = 3).value = hour
-                        wb.save(file)
-				    else:
-                        r+=1
-                        sheet0.cell(row = r, column = 1).value = nom[i]
-                        sheet0.cell(row = r, column = 2).value = date
-                        sheet0.cell(row = r, column = 3).value = hour
-                        wb.save(file)
+		if str(card_data[7]) == id[i]:
+			print(nom[i]," arrives at : ", date,hour)
+                	if sheet0.cell(row = r, column = 1).value is None:
+                        	sheet0.cell(row = r, column = 1).value = nom[i]
+	                        sheet0.cell(row = r, column = 2).value = date
+	                        sheet0.cell(row = r, column = 3).value = hour
+        	                wb.save(file)
+			else:
+                        	r+=1
+	                        sheet0.cell(row = r, column = 1).value = nom[i]
+	                        sheet0.cell(row = r, column = 2).value = date
+	                        sheet0.cell(row = r, column = 3).value = hour
+	                        wb.save(file)
