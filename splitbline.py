@@ -8,7 +8,7 @@ def split(inputFile,numParts,outputName):
     lastLine = nbLine
 
 
-    for i in range(1,numParts+1):
+    for i in range(1,numParts+2):
         if '.' in outputName:
             outputNameSplit=outputName.split('.')
             openOutputFile=open(outputNameSplit[0]+str(i)+'.'+outputNameSplit[1],'a')
