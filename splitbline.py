@@ -28,4 +28,4 @@ def splitbline(inputFile,numParts,outputName):
     openOutputFile.close()
 
 
-splitbline('test.txt',2,'file.txt')
+#splitbline('test.txt',2,'file.txt')
