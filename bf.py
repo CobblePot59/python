@@ -1,3 +1,4 @@
+import urllib3
 import requests
 import argparse
 from termcolor import colored
@@ -13,7 +14,10 @@ parser.add_argument("-e", type = str, metavar = "<error message>", help = "Speci
 
 args = parser.parse_args()
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 s = requests.session()
+s.verify = False
+
 url = args.u
 dict = {}
 i = 0
