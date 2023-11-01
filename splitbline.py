@@ -1,31 +1,17 @@
-def splitbline(inputFile,numParts,outputName):
+def splitbline(inputFile, numParts, outputName):
     with open(inputFile) as openInputFile:
         content = openInputFile.readlines()
 
     nbTotalLine = len(content)
     nbLine = nbTotalLine // numParts
-    firstLine = 0
-    lastLine = nbLine
+    outputNameSplit = outputName.split('.') if '.' in outputName else (outputName, '')
 
-    for i in range(1,numParts+1):
-        if '.' in outputName:
-            outputNameSplit=outputName.split('.')
-            openOutputFile=open(outputNameSplit[0]+str(i)+'.'+outputNameSplit[1],'a')
-        else:
-            openOutputFile=open(outputName+str(i),'a')
+    for i in range(1, numParts + 1):
+        outputFileName = f"{outputNameSplit[0]}{i}.{outputNameSplit[1]}" if outputNameSplit[1] else f"{outputName}{i}"
+        with open(outputFileName, 'a') as openOutputFile:
+            openOutputFile.writelines(content[nbLine * (i - 1):nbLine * i])
 
-        openOutputFile.writelines(content[firstLine:lastLine])
-        firstLine+=nbLine
-        lastLine+=nbLine
-        openOutputFile.close()
+    with open(f"{outputNameSplit[0]}{numParts}.{outputNameSplit[1]}", 'a') as openOutputFile:
+        openOutputFile.writelines(content[nbTotalLine - 1])
 
-    if '.' in outputName:
-        outputNameSplit=outputName.split('.')
-        openOutputFile=open(outputNameSplit[0]+str(numParts)+'.'+outputNameSplit[1],'a')
-    else:
-        openOutputFile=open(outputName+str(numParts),'a')
-    openOutputFile.writelines(content[nbTotalLine-1])
-    openOutputFile.close()
-
-
-#splitbline('test.txt',2,'file.txt')
+# splitbline('test.txt',2,'file.txt')
