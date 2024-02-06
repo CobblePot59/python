@@ -8,10 +8,8 @@ for i in range(len(f)):
 
     hashs.append(hash)
 
-    if len(user) == 2:
+    if len(user) == 2 and '$' not in user[1]:
         print(f"{user[1]}:{hash}")
-    else:
-        print(f"{user}:{hash}")
 
 print('\n====    DUPLICATE HASHS    ====\n')
 for hash in set(hashs):
